@@ -1,0 +1,14 @@
+{
+    "domain": "pentair_iq_soft",
+    "name": "Pentair IQ Soft Cabinet Softener",
+    "codeowners": [
+        "aleho"
+    ],
+    "dependencies": [],
+    "documentation": "https://github.com/aleho/ha-pentair-iq-soft",
+    "issue_tracker": "https://github.com/aleho/ha-pentair-iq-soft/issues",
+    "integration_type": "device",
+    "iot_class": "local_push",
+    "config_flow": true,
+    "version": "0.0.1"
+}

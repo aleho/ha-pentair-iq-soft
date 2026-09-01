@@ -1,0 +1,36 @@
+{
+    "title": "Pentair IQ Soft Cabinet Softener",
+    "entity": {
+        "binary_sensor": {
+            "state": {
+                "name": "State"
+            }
+        },
+        "sensor": {
+            "total_flow": {
+                "name":"Total flow"
+            },
+            "capacity_remaining": {
+                "name": "Capacity remaining"
+            },
+            "brine_fill_seconds": {
+                "name": "Brine fill seconds"
+            },
+            "days_maintenance": {
+                "name": "Days maintenance"
+            },
+            "peak_flow_rate": {
+                "name": "Peak flow rate"
+            },
+            "cycle_timer": {
+                "name": "Cycle timer"
+            },
+            "salt_alarm_count": {
+                "name": "Salt alarm count"
+            },
+            "maintenance_time": {
+                "name": "Maintenance time"
+            }
+        }
+    }
+}

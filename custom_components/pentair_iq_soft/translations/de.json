@@ -1,0 +1,36 @@
+{
+    "title": "Pentair IQ Soft Cabinet Softener",
+    "entity": {
+        "binary_sensor": {
+            "state": {
+                "name": "Status"
+            }
+        },
+        "sensor": {
+            "total_flow": {
+                "name":  "Gesamtverbrauch"
+            },
+            "capacity_remaining": {
+                "name":  "Restkapazität"
+            },
+            "brine_fill_seconds": {
+                "name":  "Salzwasser Füllung Sekunden"
+            },
+            "days_maintenance": {
+                "name":  "Tage Wartung"
+            },
+            "peak_flow_rate": {
+                "name":  "Durchfluss"
+            },
+            "cycle_timer": {
+                "name":  "Zyklus Timer"
+            },
+            "salt_alarm_count": {
+                "name":  "Salz-Alarm Zähler"
+            },
+            "maintenance_time": {
+                "name":  "Wartungszeit"
+            }
+        }
+    }
+}
