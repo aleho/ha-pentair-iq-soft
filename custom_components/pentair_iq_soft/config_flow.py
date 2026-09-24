@@ -1,20 +1,16 @@
+from collections.abc import Mapping
 from typing import (
     Any,
-    cast,
 )
 
 import voluptuous as vol
-
 from homeassistant.helpers.schema_config_entry_flow import (
     SchemaConfigFlowHandler,
     SchemaFlowFormStep,
 )
 
-
 from .const import (
     DOMAIN,
-    CONF_DEVICE_NAME,
-    CONF_DEVICE_NAME_DEFAULT,
 )
 
 
@@ -24,7 +20,7 @@ class PentairIqSoftConfigFlow(SchemaConfigFlowHandler, domain=DOMAIN):
 
     config_flow = {
         "user": SchemaFlowFormStep(
-            schema = vol.Schema({}),
+            schema=vol.Schema({}),
         ),
     }
 
