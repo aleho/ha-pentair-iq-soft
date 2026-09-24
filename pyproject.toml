@@ -1,6 +1,6 @@
 [project]
 name = "ha-pentair-iq-soft"
-version = "0.0.1"
+version = "0.1.0"
 description = "Custom integration for Pentair IQ Soft Cabinet Softener"
 readme = "README.md"
 requires-python = ">=3.14.2"
