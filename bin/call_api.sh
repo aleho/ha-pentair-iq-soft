@@ -3,8 +3,10 @@
 DEV_ID="unique_device_id"
 TS=$(date +%s)
 MINUTE=$(date +%M)
+
 TOTAL_FLOW=${2:-100}
 CAPACITY=${3:-4000}
+
 PEAK_FLOW=${2:-4}
 
 
