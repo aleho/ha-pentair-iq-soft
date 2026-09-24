@@ -13,6 +13,9 @@
             "capacity_remaining": {
                 "name": "Capacity remaining until regeneration"
             },
+            "salt_remaining": {
+                "name":  "Salt fill"
+            },
             "brine_fill_seconds": {
                 "name": "Brine fill seconds"
             },

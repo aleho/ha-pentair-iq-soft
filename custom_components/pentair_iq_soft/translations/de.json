@@ -13,6 +13,9 @@
             "capacity_remaining": {
                 "name":  "Restkapazität bis Regenerierung"
             },
+            "salt_remaining": {
+                "name":  "Salzfüllung"
+            },
             "brine_fill_seconds": {
                 "name":  "Salzwasser Füllung Sekunden"
             },

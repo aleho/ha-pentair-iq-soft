@@ -11,6 +11,7 @@ from homeassistant.components.sensor import (
 from homeassistant.config_entries import ConfigEntry
 from homeassistant.const import (
     EntityCategory,
+    UnitOfRatio,
     UnitOfTime,
     UnitOfVolume,
     UnitOfVolumeFlowRate,
@@ -89,6 +90,19 @@ _INT_SENSORS: tuple[IntSensorDescription, ...] = (
         device_class=SensorDeviceClass.VOLUME_STORAGE,
         native_unit_of_measurement=UnitOfVolume.LITERS,
         icon="mdi:storage-tank",
+    ),
+    # Salt fill remaining (%).
+    IntSensorDescription(
+        key="salt_remaining",
+        translation_key="salt_remaining",
+        signal=SIGNAL_SALT_ALARM_COUNT,
+        state_class=SensorStateClass.MEASUREMENT,
+        native_unit_of_measurement=UnitOfRatio.PERCENTAGE,
+        icon="mdi:storage-tank",
+        # seems to be salt_alarm_count in percent
+        value_handler=lambda value: (
+            (10 - value) * 10 if isinstance(value, int) else None
+        ),
     ),
     # Brine fill (s).
     IntSensorDescription(
