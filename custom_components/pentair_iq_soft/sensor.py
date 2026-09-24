@@ -43,10 +43,6 @@ class IntSensorDescription(PentairEntityDescription, SensorEntityDescription):
     suggested_display_precision = 0
 
 
-class RestoredSensorDescription(PentairEntityDescription, SensorEntityDescription):
-    """Describes an int sensor being able to restore its value."""
-
-
 class IntSensor(PentairEntity, SensorEntity):
     entity_description: IntSensorDescription
 
@@ -59,7 +55,7 @@ class IntSensor(PentairEntity, SensorEntity):
 
 
 class RestoredIntSensor(IntSensor, RestoreSensor):
-    entity_description: RestoredSensorDescription
+    entity_description: IntSensorDescription
 
     @override
     async def async_added_to_hass(self) -> None:
@@ -69,9 +65,9 @@ class RestoredIntSensor(IntSensor, RestoreSensor):
             self._attr_native_value = last_data.native_value
 
 
-_RESTORED_INT_SENSORS: tuple[RestoredSensorDescription, ...] = (
+_RESTORED_INT_SENSORS: tuple[IntSensorDescription, ...] = (
     # Total flow (L).
-    RestoredSensorDescription(
+    IntSensorDescription(
         key="total_flow",
         translation_key="total_flow",
         signal=SIGNAL_TOTAL_FLOW,

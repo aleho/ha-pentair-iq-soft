@@ -11,13 +11,13 @@
                 "name":"Total flow"
             },
             "capacity_remaining": {
-                "name": "Capacity remaining"
+                "name": "Capacity remaining until regeneration"
             },
             "brine_fill_seconds": {
                 "name": "Brine fill seconds"
             },
             "days_maintenance": {
-                "name": "Days maintenance"
+                "name": "Days since maintenance"
             },
             "peak_flow_rate": {
                 "name": "Peak flow rate"

@@ -11,13 +11,13 @@
                 "name":  "Gesamtverbrauch"
             },
             "capacity_remaining": {
-                "name":  "Restkapazität"
+                "name":  "Restkapazität bis Regenerierung"
             },
             "brine_fill_seconds": {
                 "name":  "Salzwasser Füllung Sekunden"
             },
             "days_maintenance": {
-                "name":  "Tage Wartung"
+                "name":  "Tage seit Wartung"
             },
             "peak_flow_rate": {
                 "name":  "Durchfluss"
