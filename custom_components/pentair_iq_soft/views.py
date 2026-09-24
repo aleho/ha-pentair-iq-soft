@@ -23,10 +23,10 @@ URL_BASE = "/api/device/v1/water_softener"
 
 class BaseView(HomeAssistantView):
     async def _parsePayload(self, data: dict) -> dict:
-        if not "content" in data:
+        if "content" not in data:
             return {}
 
-        if not "payload" in data["content"]:
+        if "payload" not in data["content"]:
             return {}
 
         return data["content"]["payload"]
