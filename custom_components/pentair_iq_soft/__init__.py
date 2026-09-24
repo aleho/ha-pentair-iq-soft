@@ -9,6 +9,7 @@ from .views import (
 
 PLATFORMS: list[Platform] = [
     Platform.SENSOR,
+    Platform.BINARY_SENSOR,
 ]
 
 
