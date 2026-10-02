@@ -20,6 +20,7 @@ from .signals import (
 )
 
 URL_BASE = "/api/device/v1/water_softener"
+_LOGGER = logging.getLogger(__name__)
 
 
 class BaseView(HomeAssistantView):
@@ -33,8 +34,6 @@ class BaseView(HomeAssistantView):
         return data["content"]["payload"]
 
     async def post(self, request: web.Request) -> web.Response:
-        logger = logging.getLogger(__name__)
-
         try:
             hass = request.app["hass"]
             data = await request.json()
@@ -48,18 +47,18 @@ class BaseView(HomeAssistantView):
                 )
 
             payload = await self._parsePayload(data)
-            logger.debug("[%s] payload: %s", self.url, payload)
+            _LOGGER.debug("[%s] payload: %s", self.url, payload)
 
             self._handlePayload(payload, hass)
 
             return web.Response(status=HTTPStatus.OK, text="OK")
 
         except (ValueError, TypeError) as err:
-            logger.error("[%s] %s", self.url, err)
+            _LOGGER.error("[%s] %s", self.url, err)
             return web.Response(status=HTTPStatus.BAD_REQUEST, text="Invalid payload")
 
         except Exception as err:
-            logger.error("[%s] %s", self.url, err)
+            _LOGGER.error("[%s] %s", self.url, err)
             return web.Response(
                 status=HTTPStatus.INTERNAL_SERVER_ERROR, text="Internal Error"
             )
