@@ -24,7 +24,8 @@ _LOGGER = logging.getLogger(__name__)
 
 
 class BaseView(HomeAssistantView):
-    async def _parsePayload(self, data: dict) -> dict:
+    @staticmethod
+    async def _parse_payload(data: dict) -> dict:
         if "content" not in data:
             return {}
 
@@ -46,10 +47,10 @@ class BaseView(HomeAssistantView):
                     data["id"],
                 )
 
-            payload = await self._parsePayload(data)
+            payload = await self._parse_payload(data)
             _LOGGER.debug("[%s] payload: %s", self.url, payload)
 
-            self._handlePayload(payload, hass)
+            self._handle_payload(payload, hass)
 
             return web.Response(status=HTTPStatus.OK, text="OK")
 
@@ -63,7 +64,7 @@ class BaseView(HomeAssistantView):
                 status=HTTPStatus.INTERNAL_SERVER_ERROR, text="Internal Error"
             )
 
-    def _handlePayload(self, payload: dict, hass) -> None:
+    def _handle_payload(self, payload: dict, hass) -> None:
         """Handles the actual API payload"""
         pass
 
@@ -73,7 +74,7 @@ class StatsView(BaseView):
     url = URL_BASE + "/stats"
     name = f"api:{DOMAIN}:stats"
 
-    def _handlePayload(self, payload: dict, hass) -> None:
+    def _handle_payload(self, payload: dict, hass) -> None:
         if "state" in payload:
             async_dispatcher_send(
                 hass, SIGNAL_STATE, True if payload["state"] == 1 else False
@@ -116,7 +117,7 @@ class CurrentFlowView(BaseView):
     url = URL_BASE + "/flow"
     name = f"api:{DOMAIN}:flow"
 
-    def _handlePayload(self, payload: dict, hass) -> None:
+    def _handle_payload(self, payload: dict, hass) -> None:
         if "peak_flow_rate" in payload:
             async_dispatcher_send(
                 hass, SIGNAL_PEAK_FLOW_RATE, int(payload["peak_flow_rate"])
