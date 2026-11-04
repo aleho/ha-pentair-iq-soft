@@ -11,5 +11,5 @@
     "issue_tracker": "https://github.com/aleho/ha-pentair-iq-soft/issues",
     "loggers": ["custom_components.pentair_iq_soft"],
     "requirements": ["dnspython"],
-    "version": "0.1.1"
+    "version": "0.1.2"
 }
