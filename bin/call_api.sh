@@ -21,6 +21,11 @@ elif [[ $1 == "flow" ]]; then
         -X POST "http://erieconnect.eriewatertreatment.com/api/device/v1/water_softener/flow" -H "Content-Type: application/json" \
         -d '{"id":"'$DEV_ID'","content":{"ts":'$TS',"payload":{"peak_flow_rate":'$PEAK_FLOW'}},"t":"SOMETHING"}'
 
+elif [[ $1 == "get_time" ]]; then
+    curl -i \
+        -X POST "http://erieconnect.eriewatertreatment.com/api/device/v1/water_softener/get_time" -H "Content-Type: application/x-www-form-urlencoded" \
+        -d "id=$DEV_ID"
+
 else
-    echo 'One of "stats", "flow" required as first argument.'
+    echo 'One of "stats", "flow", "get_time", required as first argument.'
 fi
