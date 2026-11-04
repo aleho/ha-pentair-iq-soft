@@ -1,6 +1,7 @@
 {
     "domain": "pentair_iq_soft",
     "name": "Pentair IQ Soft Cabinet Softener",
+    "categories": ["water.water_treatment"],
     "codeowners": ["@aleho"],
     "config_flow": true,
     "dependencies": ["http"],
